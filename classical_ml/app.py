@@ -5,8 +5,8 @@ import joblib
 # --- 1. Load the Model and Columns ---
 @st.cache_resource
 def load_components():
-    model = joblib.load('models/insurance_model.pkl')
-    expected_columns = joblib.load('models/model_columns.pkl')
+    model = joblib.load('classical_ml/models/insurance_model.pkl')
+    expected_columns = joblib.load('classical_ml/models/model_columns.pkl')
     return model, expected_columns
 
 model, expected_columns = load_components()
@@ -50,4 +50,5 @@ if st.button("Calculate Estimated Bill"):
     prediction = model.predict(input_df)
     
     # Display the result beautifully
+
     st.success(f"**Estimated Insurance Bill: ${prediction[0]:,.2f}**")
